@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Fred Yang</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<link href="../layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
+<style type="text/css">
+</style>
+</head>
+<body id="top">
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<div class="wrapper row1 bgded" style="background-image:url('../images/demo/slider/05.png');">
+  <header id="header" class="clear">
+    <div id="logo" class="fl_left"> 
+      <!-- ################################################################################################ -->
+      <h1><a href="../index.html">Fred Yang</a></h1>
+      <!-- ################################################################################################ -->
+    </div>
+    <nav id="mainav" class="fl_right">
+      <ul class="clear">
+        <!-- ################################################################################################ -->
+        <li><a href="../index.html">Home</a></li>
+        <li class="active"><a class="drop" href="#">Pages</a>
+          <ul>
+            <li><a href="sketch_model.html">Sketchfab 3D Model</a></li>
+            <li><a href="full-width.html">Personal Profile</a></li>
+            <li class="active"><a href="basic-grid.html">Upload Image Test</a></li>
+          </ul>
+        </li>
+        <li><a class="drop" href="#">Data</a>
+          <ul>
+            <li><a href="https://drive.google.com/drive/folders/1NFIixeFyuPQ1V6j-tnEw7asLqIa6ItDk?usp=sharing">Self-made WHU Building Dataset</a></li>
+			<li><a href="https://drive.google.com/drive/folders/1oiMcTKNOCnBKU1CGA0__9lupKQsmkJVg?usp=sharing">Modified London Bike Sharing Data</a></li>
+            <li><a class="drop" href="#">SAR</a>
+              <ul>
+                <li><a href="error.html">TBD</a></li>
+                <li><a href="error.html">TBD</a></li>
+                <li><a href="error.html">TBD</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><a href="#contact">Social Link</a></li>
+        <li><a href="#contact">More Information</a></li>
+        <!-- ################################################################################################ -->
+      </ul>
+    </nav>
+  </header>
+</div>
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<div class="wrapper row3">
+  <main class="container clear"> 
+    <!-- main body -->
+    <!-- ################################################################################################ -->
+    <div class="content"> 
+      <!-- ################################################################################################ -->
+		<!-- 下面是普通上傳多張照片的html -->
+		<div class="one_quarter">
+		<h2>Upload Images</h2>
+		<input id="fileupload" type="file" multiple="multiple" />
+		<hr/>
+		<br/>
+		<div id="dvPreview"></div>
+		</div>
+		
+		<!-- 下面是上傳單張照片然後壓縮的html -->
+		<div class="one_quarter">
+		<h2>Compress Image</h2>
+		<input type="file" name="upload-image" id="upload-image" required />
+		<hr/>
+		<br/>
+		<p name="before-compression"></p>
+		<img src="" class="before" id = "image_before">
+		<p name="after-compression"></p>
+		<canvas style="display: none;"></canvas>
+		<img src="" class="after" id = "image_after">
+		</div>
+		
+	<!-- 下面是普通上傳多張照片的script -->
+	<script language="javascript" type="text/javascript">
+		window.onload = function () {
+		var fileUpload = document.getElementById("fileupload");
+		fileUpload.onchange = function () {
+        if (typeof (FileReader) != "undefined") {
+            var dvPreview = document.getElementById("dvPreview");
+            dvPreview.innerHTML = "";
+            var regex = /^([a-zA-Z0-9\s_\\.\-:])+(.jpg|.jpeg|.gif|.png|.bmp)$/;
+            for (var i = 0; i < fileUpload.files.length; i++) {
+                var file = fileUpload.files[i];
+                if (regex.test(file.name.toLowerCase())) {
+                    var reader = new FileReader();
+                    reader.onload = function (e) {
+		       // 設定新寬度為300
+                        var img = document.createElement("IMG");
+			img.width = 300;
+                        img.height = 500;
+                        img.src = e.target.result;
+                        dvPreview.appendChild(img);
+                    }
+                    reader.readAsDataURL(file);
+                } else {
+                    alert(file.name + " is not a valid image file.");
+                    dvPreview.innerHTML = "";
+                    return false;
+                }
+            }
+        } else {
+            alert("This browser does not support HTML5 FileReader.");
+        }
+    }
+};
+	</script>
+	
+	<!-- 下面是上傳單張照片然後壓縮的script -->
+	<script>
+	const ReadAndCompress = (e) => {
+	const size = `Before Compression: ${(e.target.files[0].size/(1000*1024)).toFixed(2)} MB`;
+	document.querySelector("p[name=before-compression]").innerHTML = size;
+	const reader = new FileReader();
+	reader.readAsDataURL(e.target.files[0]);
+
+	reader.onload = event => {
+    const img = document.querySelector("img.before");
+    img.src = event.target.result;
+    img.style = "display: true";
+    img.onload = () => {
+      const width = img.width;
+      const height = img.height;
+      const elem = document.querySelector('canvas');
+      elem.width = width;
+      elem.height = height;
+      const ctx = elem.getContext('2d');
+      ctx.drawImage(img, 0, 0, width, height);
+      const webp = ctx.canvas.toDataURL("image/webp", 0.5);
+      const imgAfter = document.querySelector("img.after");
+      imgAfter.src = webp;
+      imgAfter.style = "display: true";
+      const head = 'data:image/webp;base64,';
+      const imgFileSize = (Math.round((webp.length - head.length)*3/4) / (1000)).toFixed(2);
+      document.querySelector("p[name=after-compression]").innerHTML =
+        `After Compression: ${imgFileSize} KB`;
+    },
+    reader.onerror = error => console.error(error);
+	}
+	}
+
+	document.querySelector("input[name=upload-image]").addEventListener("change", (event) => ReadAndCompress(event))
+	</script>
+	
+	</div>
+	
+	
+	
+
+<!-- ################################################################################################ -->	
+    <!-- / main body -->
+    <div class="clear"></div>
+  </main>
+</div>
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<div class="wrapper row4">
+  <footer id="footer" class="clear"> 
+    <!-- ################################################################################################ -->
+    <div class="one_quarter first">
+      <h6 class="title" id = "contact">Contact</h6>
+      <address class="btmspace-15">
+      Facebook 楊尚峰<br>
+      IG a6010224<br>
+      NTU Civil Room 213<br>
+      </address>
+      <ul class="nospace">
+        <p>Academic Usage</p>
+        <li><span class="fa fa-envelope-o"></span> r10521801@ntu.edu.tw</li>
+        <p>Non-Academic Usage</p>
+        <li><span class="fa fa-envelope-o"></span> a60102244@gmail.com</li>
+      </ul>
+    </div>
+    <div class="one_quarter">
+      <h6 class="title">Contact My Mentor</h6>
+      <ul class="nospace linklist">
+        <li>Mentor's Email</li>
+        <li>yalunstsai@ntu.edu.tw</li>
+        <li>Mentor's Website</li>
+        <li>https://yalunstsai.wixsite.com/eorslab-ntu</li>
+      </ul>
+    </div>
+    <div class="one_quarter">
+      <h6 class="title">More Information</h6>
+      <article>
+        <h2 class="font-x1 nospace">Website Uploaded on</h2>
+        <time class="smallfont" datetime="2021-09-18">Saturday, 18<sup>th</sup> September 2021</time>
+        <p>And the server is host by NTU.</p>
+      </article>
+    </div>
+
+    <!-- ################################################################################################ -->
+  </footer>
+</div>
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<div class="wrapper row5">
+  <div id="copyright" class="clear"> 
+    <!-- ################################################################################################ -->
+    <p class="fl_left">Copyright &copy; 2018 - All Rights Reserved - <a href="#">Fred Yang</a></p>
+    <p class="fl_right">Modified Template From <a target="_blank" href="https://www.os-templates.com/" title="Free Website Templates">OS Templates</a></p>
+    <!-- ################################################################################################ -->
+  </div>
+</div>
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<a id="backtotop" href="#top"><i class="fa fa-chevron-up"></i></a> 
+<!-- JAVASCRIPTS -->
+<script src="../layout/scripts/jquery.min.js"></script>
+<script src="../layout/scripts/jquery.backtotop.js"></script>
+<script src="../layout/scripts/jquery.mobilemenu.js"></script>
+<!-- IE9 Placeholder Support -->
+<script src="../layout/scripts/jquery.placeholder.min.js"></script>
+<!-- / IE9 Placeholder Support -->
+</body>
+</html>

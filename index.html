@@ -1,10 +1,272 @@
-<!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>你好，GitHub</title>
-  </head>
-  <body>
-    <h1>覺得厲害</h1>
-  </body>
+<head>
+<title>Fred Yang</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<link href="layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
+</head>
+<body id="top" class="homepage"><!-- Homepage class is only used on the homepage in conjunction with the slider -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<div class="wrapper row1">
+  <header id="header" class="clear">
+    <div id="logo" class="fl_left"> 
+      <!-- ################################################################################################ -->
+      <h1><a href="index.html">Fred Yang</a></h1>
+      <!-- ################################################################################################ -->
+    </div>
+    <nav id="mainav" class="fl_right">
+      <ul class="clear">
+        <!-- ################################################################################################ -->
+        <li class="active"><a href="index.html">Home</a></li>
+        <li><a class="drop" href="#">Pages</a>
+          <ul>
+            <li><a href="pages/sketch_model.html">Sketchfab 3D Model</a></li>					
+            <li><a href="pages/full-width.html">Personal Profile</a></li>
+            <li><a href="pages/basic-grid.html">Upload Image Test</a></li>
+          </ul>
+        </li>
+        <li><a class="drop" href="#">Data</a>
+          <ul>
+            <li><a href="https://drive.google.com/drive/folders/1NFIixeFyuPQ1V6j-tnEw7asLqIa6ItDk?usp=sharing">Self-made WHU Building Data</a></li>
+			<li><a href="https://drive.google.com/drive/folders/1oiMcTKNOCnBKU1CGA0__9lupKQsmkJVg?usp=sharing">Modified London Bike Sharing Data</a></li>
+            <li><a class="drop" href="#">SAR</a>
+              <ul>
+                <li><a href="pages/error.html">TBD</a></li>
+                <li><a href="pages/error.html">TBD</a></li>
+                <li><a href="pages/error.html">TBD</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><a href="#contact">Scoial Link</a></li>
+        <li><a href="#contact">More Information</a></li>
+        <!-- ################################################################################################ -->
+      </ul>
+    </nav>
+  </header>
+</div>
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<div id="slider">
+  <div class="flexslider basicslider">
+    <ul class="slides">
+      <!-- ################################################################################################ -->
+      <li class="bgded" style="background-image:url('images/demo/slider/sea.jpg')">
+        <article class="flex-content">
+          <h2 class="heading underlined">Personal Website</h2>
+          <p>College : National Cheng Kung University Geomatics 2017/09 - 2021/06 (Bachelor) Graduate School : National Taiwan University Civil Engineering 2021/09 - now</p>
+          <p><a class="btn" href="#contact">Contact me</a></p>
+        </article>
+      </li>
+      <li class="bgded" style="background-image:url('images/demo/slider/taipei.jpg')">
+        <article class="flex-content">
+          <h2 class="heading underlined">Living in Taipei</h2>
+          <p>Taiwan Capital City. Comparing to Tainan,the pace here is a lot faster.</p>
+        </article>
+      </li>
+      <li class="bgded" style="background-image:url('images/demo/slider/cat.jpg')">
+        <article class="flex-content">
+          <h2 class="heading underlined">Cat Guy</h2>
+        </article>
+      </li>
+      <!-- ################################################################################################ -->
+    </ul>
+  </div>
+</div>
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<div class="wrapper row3">
+  <main class="container clear"> 
+    <!-- main body -->
+    <!-- ################################################################################################ -->
+    <div class="center clear">
+      <div class="btmspace-80">
+        <h2 class="font-x2 bold underlined">About Me</h2>
+        <p>Born and grew up in Taichung. Move to Tainan for college, and now in Taipei for graduate school. My research topic is about applying Machine Learning and Deep Learning in Synthetic Aperture Radar. My mentor is Prof.Ya-Lun Tsai.</p>
+      </div>
+      <div class="group">
+        <article class="one_quarter first"><a href="#"><i class="btmspace-15 fa fa-3x fa-qrcode"></i></a>
+          <h4 class="font-x1 underlined">Cat Guy</h4>
+          <p>I love fat cat</p>
+        </article>
+        <article class="one_quarter"><a href="#"><i class="btmspace-15 fa fa-3x fa-cogs"></i></a>
+          <h4 class="font-x1 underlined">College Project</h4>
+          <p>Building detection using Deep Learning(AutoEncoder&Resnet) Self-attention layer network predicting bike sharing</p>
+        </article>
+        <article class="one_quarter"><a href="#"><i class="btmspace-15 fa fa-3x fa-university"></i></a>
+          <h4 class="font-x1 underlined">Researching Topic</h4>
+          <p>Ship and offshore windfarm detection in SAR using DL&ML</p>
+        </article>
+        <article class="one_quarter"><a href="#"><i class="btmspace-15 fa fa-3x fa-globe"></i></a>
+          <h4 class="font-x1 underlined">Future Plan</h4>
+          <p>Improve my ability</p>
+        </article>
+      </div>
+    </div>
+    <!-- ################################################################################################ -->
+    <!-- / main body -->
+    <div class="clear"></div>
+  </main>
+</div>
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<div class="wrapper row1 bgded" style="background-image:url('images/demo/slider/stair2.jpg');">
+  <div class="overlay">
+    <div class="container clear"> 
+      <!-- ################################################################################################ -->
+      <div class="btmspace-80 center">
+        <h2 class="font-x2 bold underlined">My Skills</h2>
+        <p>Self-rating my current ability. Rating date: 2021/09/18. Four crucial abilities to my research topic as below.</p>
+      </div>
+      <ul class="pr-charts nospace group center">
+        <li class="pr-chart-ctrl" data-animate="false">
+          <div class="pr-chart" data-percent="60"><i></i></div>
+          <p>SAR Basic Theory</p>
+        </li>
+        <li class="pr-chart-ctrl" data-animate="false">
+          <div class="pr-chart" data-percent="20"><i></i></div>
+          <p>SAR Processing Experience</p>
+        </li>
+        <li class="pr-chart-ctrl" data-animate="false">
+          <div class="pr-chart" data-percent="75"><i></i></div>
+          <p>ML & DL Familiarity</p>
+        </li>
+        <li class="pr-chart-ctrl" data-animate="false">
+          <div class="pr-chart" data-percent="70"><i></i></div>
+          <p>Paper Reading</p>
+        </li>
+      </ul>
+      <!-- ################################################################################################ -->
+    </div>
+  </div>
+</div>
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<div class="wrapper row3">
+  <section class="container clear"> 
+    <!-- ################################################################################################ -->
+    <div class="btmspace-80 center">
+      <h2 class="font-x2 bold underlined">My Article</h2>
+      <p>Research articles & project reports. Even some of my personal diary may be uploaded here.<a href="pages/full-width.html#articles">&nbsp Read More &raquo;</a></p>
+    </div>
+    <div class="group latest">
+      <article class="one_quarter first">
+        <figure><img src="images/demo/slider/newauto3.jpg" alt="">
+          <figcaption><strong>01</strong>Project</figcaption>
+        </figure>
+        <h3 class="font-x1 heading">Building detection using Deep Learning</h3>
+        <p>Autoencoder network gain over 80% accuracy in testing set (2800+ images)</p>
+        <p><a href="https://drive.google.com/file/d/1X2aDyTwNA7Pfg819rbZjfTV5AHx9_qVU/view?usp=sharing">Read More &raquo;</a></p>
+      </article>
+      <article class="one_quarter">
+        <figure><img src="images/demo/slider/SELF.JPG" alt="">
+          <figcaption><strong>02</strong>Project</figcaption>
+        </figure>
+        <h3 class="font-x1 heading">Self-attention layer network for bike sharing prediction</h3>
+        <p>Outperform LSTM/TCN/GRU in London dataset, and some other research about adding neighbor station data.</p>
+        <p><a href="https://drive.google.com/file/d/1Vvz4sdDyDfgwRjWL02cMJmQifLhI6Xpb/view?usp=sharing">Read More &raquo;</a></p>
+      </article>
+      <article class="one_quarter">
+        <figure><img src="images/demo/slider/fatcat.jpg" alt="">
+          <figcaption><strong>03</strong>Record</figcaption>
+        </figure>
+        <h3 class="font-x1 heading">NCTU Application Record</h3>
+        <p>Having a nice talk with Professors in NCTU Civil Engineering.</p>
+        <p><a href="#">Read More &raquo;</a></p>
+      </article>
+      <article class="one_quarter">
+        <figure><img src="images/demo/slider/fatcat.jpg" alt="">
+          <figcaption><strong>04</strong>Record</figcaption>
+        </figure>
+        <h3 class="font-x1 heading">NTU Application Record</h3>
+        <p>Having a nice talk with Professors in NTU Civil Engineering.</p>
+        <p><a href="#">Read More &raquo;</a></p>
+      </article>
+    </div>
+    <!-- ################################################################################################ -->
+    <div class="clear"></div>
+  </section>
+</div>
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<div class="wrapper row4">
+  <footer id="footer" class="clear"> 
+    <!-- ################################################################################################ -->
+    <div class="one_quarter first">
+      <h6 class="title" id = "contact">Contact</h6>
+      <address class="btmspace-15">
+      Facebook 楊尚峰<br>
+      IG a6010224<br>
+      NTU Civil Room 213<br>
+      </address>
+      <ul class="nospace">
+        <p>Academic Usage</p>
+        <li><span class="fa fa-envelope-o"></span> r10521801@ntu.edu.tw</li>
+        <p>Non-Academic Usage</p>
+        <li><span class="fa fa-envelope-o"></span> a60102244@gmail.com</li>
+      </ul>
+    </div>
+    <div class="one_quarter">
+      <h6 class="title">Contact My Mentor</h6>
+      <ul class="nospace linklist">
+        <li>Mentor's Email</li>
+        <li>yalunstsai@ntu.edu.tw</li>
+        <li>Mentor's Website</li>
+        <li>https://yalunstsai.wixsite.com/eorslab-ntu</li>
+      </ul>
+    </div>
+    <div class="one_quarter">
+      <h6 class="title">More Information</h6>
+      <article>
+        <h2 class="font-x1 nospace">Website Uploaded on</h2>
+        <time class="smallfont" datetime="2021-09-18">Saturday, 18<sup>th</sup> September 2021</time>
+        <p>And the server is host by NTU.</p>
+      </article>
+    </div>
+
+    <div style="width:30%;height:30%;position:relative;">
+    <iframe src="https://giphy.com/embed/OqDXk7H0RfgGyyjtkL" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen>
+    </iframe>
+    </div>
+
+    
+    <!-- ################################################################################################ -->
+  </footer>
+</div>
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<div class="wrapper row5">
+  <div id="copyright" class="clear"> 
+    <!-- ################################################################################################ -->
+    <p class="fl_left">Copyright &copy; 2018 - All Rights Reserved - <a href="#">Fred Yang</a></p>
+    <p class="fl_right">Modified Template From <a target="_blank" href="https://www.os-templates.com/" title="Free Website Templates">OS Templates</a></p>
+    <!-- ################################################################################################ -->
+  </div>
+</div>
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<a id="backtotop" href="#top"><i class="fa fa-chevron-up"></i></a>
+<!-- JAVASCRIPTS -->
+<script src="layout/scripts/jquery.min.js"></script>
+<script src="layout/scripts/jquery.backtotop.js"></script>
+<script src="layout/scripts/jquery.mobilemenu.js"></script>
+<!-- IE9 Placeholder Support -->
+<script src="layout/scripts/jquery.placeholder.min.js"></script>
+<!-- / IE9 Placeholder Support -->
+<!-- Homepage specific -->
+<script src="layout/scripts/jquery.flexslider-min.js"></script>
+<script src="layout/scripts/jquery.easypiechart.min.js"></script>
+<div id="preloader"><div></div></div><!-- Basic page preloader -->
+<script>$(window).load(function(){$("#preloader div").delay(500).fadeOut();$("#preloader").delay(800).fadeOut("slow");});</script>
+<!-- / Homepage specific -->
+</body>
 </html>
